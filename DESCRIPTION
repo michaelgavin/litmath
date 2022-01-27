@@ -12,7 +12,6 @@ Description: Data, code, and tutorials supplementing the monograph
     all data and functions needed to replicate findings presented in the 
     book, alongside tutorials for students and others to explore the 
     data and the methods on their own.
-Depends: R (>= 3.5.0)
 Imports: 
     Matrix,
     igraph
