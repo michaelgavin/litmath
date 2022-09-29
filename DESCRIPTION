@@ -14,6 +14,7 @@ Description: Data, code, and tutorials supplementing the monograph
     data and the methods on their own.
 Imports: 
     Matrix,
+    ggplot2,
     igraph
 License: Public Domain ("The Unlicense")
 Encoding: UTF-8

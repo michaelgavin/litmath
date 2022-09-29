@@ -45,22 +45,22 @@
 #' @examples
 #' # For most similar words in a word-context matrix
 #' data(eebo)
-#' similarity(mat = eebo, vec = "rights") 
-#' similarity(mat = eebo, vec = "rights", method = "euclidean")
+#' most_similar(mat = eebo, vec = "rights") 
+#' most_similar(mat = eebo, vec = "rights", method = "euclidean")
 #' 
 #' # For most similar words of a composite vector
 #' compvec = eebo["mind",] - eebo["soul",]
-#' similarity(mat = eebo, vec = compvec)
+#' most_similar(mat = eebo, vec = compvec)
 #' 
 #' # For most similar documents in a term-document matrix
 #' data(shakespeare)
-#' similarity(mat = shakespeare, vec = "TN", margin = 2)
+#' most_similar(mat = shakespeare, vec = "TN", margin = 2)
 #' 
 #' # For full results
-#' similarity(mat = eebo, vec = "rights", fullResults = TRUE)
+#' most_similar(mat = eebo, vec = "rights", fullResults = TRUE)
 #' 
 #' @export
-similarity = function(mat, vec, method = "cosine", margin = 1, fullResults = F) {
+most_similar = function(mat, vec, method = "cosine", margin = 1, fullResults = F) {
   cos_sim = function(x,y) { x %*% y / (sqrt(x%*%x) * sqrt(y%*%y)) }
   euc_dist = function(x, y) { sqrt(sum((x - y) ^ 2)) }
   
