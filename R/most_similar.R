@@ -64,10 +64,6 @@ most_similar = function(mat, vec, method = "cosine", margin = 1, fullResults = F
   cos_sim = function(x,y) { x %*% y / (sqrt(x%*%x) * sqrt(y%*%y)) }
   euc_dist = function(x, y) { sqrt(sum((x - y) ^ 2)) }
   
-  if (class(mat) == "docMatrix") {
-    mat <- mat@mat
-  }
-  
   if (length(vec) %in% dim(mat) == F) {
     keyword = vec
     if (margin == 1) { 
