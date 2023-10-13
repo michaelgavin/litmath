@@ -21,7 +21,7 @@
 #' @return A scatterplot showing structure of 30 most-similar words.
 #' 
 #' @section What it does:
-#' This function runs \code{\link{similarity}} over a word-context matrix and looks for the
+#' This function runs \code{\link{most_similar}} over a word-context matrix and looks for the
 #' thirty most similar terms, then clusters them.
 #' @export
 similarity_map = function(mat, 
@@ -30,15 +30,13 @@ similarity_map = function(mat,
                           margin = 1,
                           numResults = 40, 
                           numGrps = 5) {
-  if (class(mat) == "docMatrix") {
-    mat = mat@mat
-  }
+
   if (method %in% c("cosine", "euclidean", "pearson", "covariance") == F) {
     stop("The 'method' argument must be deployed: 'cosine', 'euclidean', 'pearson', 'covariance'.")
   }
   
   # Get words most similar to keyword
-  results = similarity(mat = mat, vec = keyword, method = method, margin = margin, fullResults = T)
+  results = most_similar(mat = mat, vec = keyword, method = method, margin = margin, fullResults = T)
   if (method == "euclidean") {
     results = sort(results)[1:numResults]
   } else {
